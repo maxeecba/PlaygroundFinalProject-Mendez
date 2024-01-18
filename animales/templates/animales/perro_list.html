@@ -1,0 +1,14 @@
+{% extends 'animales/padre.html' %} 
+
+{% block contenido_que_cambia %}    
+    <form method="post">
+        {% csrf_token %} 
+        <h2>Lista de Perros</h2>            
+        {%for perro in object_list %}
+
+        <ul>
+                <li>{{perro.id}} {{perro.nombre}}</li>
+        </ul>        
+        {% endfor %}
+    </form>
+{% endblock contenido_que_cambia %}

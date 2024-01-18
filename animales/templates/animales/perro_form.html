@@ -1,0 +1,11 @@
+{% extends 'animales/padre.html' %} 
+
+{% block contenido_que_cambia %}    
+    <form method="post">
+        {% csrf_token %} 
+
+        <h2>Publicar Perro</h2>            
+            {{ form.as_p }}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock contenido_que_cambia %}
