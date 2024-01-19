@@ -10,6 +10,8 @@ from django.views.generic import ListView,CreateView,DetailView,UpdateView,Delet
 def padre(request):
     return render(request,'animales/padre.html')
 
+#------------------------------Vistas para Perro--------------------------------------------
+
 def perro (request):
     return render(request, 'animales/perro.html')
 
@@ -39,4 +41,37 @@ class PerroUpdate(UpdateView):
 
 class PerroDelete(DeleteView):
     model = Perro
+    success_url = reverse_lazy("animales:inicio")
+
+#--------------------------------Vistas para Gato---------------------------------
+
+def gato (request):
+    return render(request, 'animales/gato.html')
+
+class GatoCreate(CreateView):
+    model = Gato
+    form_class = GatoForm
+    success_url = reverse_lazy("animales:gato")
+
+class GatoList(ListView):
+    model = Gato
+    template_name = 'animales/gato_list.html'
+
+    def get_queryset(self):
+        if self.request.GET.get('consulta'):
+            consultar = self.request.GET.get('consulta')
+            object_list= Gato.objects.filter(nombre__icontains= consultar)
+        else:
+            object_list= Gato.objects.all()
+        return object_list
+class GatoDetail(DetailView):
+    model = Gato
+
+class GatoUpdate(UpdateView):
+    model = Gato
+    form_class = GatoForm
+    success_url = reverse_lazy("animales:gato_list")
+
+class GatoDelete(DeleteView):
+    model = Gato
     success_url = reverse_lazy("animales:inicio")

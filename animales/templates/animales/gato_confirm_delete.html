@@ -1,0 +1,13 @@
+{% extends 'animales/padre.html' %}
+
+{% block contenido_que_cambia %}
+    <h2>Eliminar Publicacion</h2>
+
+    <p class="fs-5 fst-italic">Confirma eliminar a {{object.nombre}}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <button type="submit" class="btn btn-danger">Confirmar</button>
+        </div>
+    </form>
+{% endblock contenido_que_cambia %}

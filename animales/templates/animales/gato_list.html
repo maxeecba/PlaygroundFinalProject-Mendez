@@ -1,0 +1,25 @@
+{% extends 'animales/padre.html' %}
+
+{% block contenido_que_cambia %}
+
+        {% csrf_token %}
+        <a href="{% url 'animales:gato_form' %}">Publicar Gato</a>
+                                <h2>Lista de Gatos</h2>
+        <div>
+            <form action= '{% url 'animales:gato_list' %}'>
+                <input type="text" name="consulta" placeholder="Buscar...">
+
+            </form>
+        </div>
+        {%for gato in object_list %}
+
+        <ul>
+                <li>Nombre:{{gato.nombre}} Tamaño:{{gato.tamano}} Color:{{perro.color_pelo}}</li>
+                <a href="{% url 'animales:gato_detail' gato.id %}"> Ver en detalle</a>
+
+                <a href="{% url 'animales:gato_update' pk=gato.id %}"> Editar </a>
+                <a href="{% url 'animales:gato_delete' pk=gato.id %}"> Eliminar </a>
+        </ul>
+        {% endfor %}
+
+{% endblock contenido_que_cambia %}

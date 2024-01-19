@@ -1,0 +1,11 @@
+{% extends 'animales/padre.html' %}
+
+{% block contenido_que_cambia %}
+    <h1>Gato</h1>
+
+    <a href="{% url 'animales:gato_form' %}">Publicar Gato</a>
+    <a href="{% url 'animales:gato_list' %}">Quiero un Gato</a>
+
+
+
+{% endblock contenido_que_cambia %}
