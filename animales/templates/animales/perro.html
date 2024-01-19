@@ -1,11 +1,11 @@
-{% extends 'animales/padre.html' %} 
+{% extends 'animales/padre.html' %}
 
-{% block contenido_que_cambia %}  
+{% block contenido_que_cambia %}
     <h1>Perro</h1>
+
+    <a href="{% url 'animales:perroform' %}">Publicar Perro</a>
+    <a href="{% url 'animales:perrolist' %}">Quiero un Perro</a>
     
-    <a href="{% url 'animales:perroform' %}">Publicar Perro</a>      
-    <a href="{% url 'animales:perrolist' %}">Quiero un Perro</a>      
 
 
-    
 {% endblock contenido_que_cambia %}

@@ -1,14 +1,25 @@
-{% extends 'animales/padre.html' %} 
+{% extends 'animales/padre.html' %}
 
-{% block contenido_que_cambia %}    
-    <form method="post">
-        {% csrf_token %} 
-        <h2>Lista de Perros</h2>            
+{% block contenido_que_cambia %}
+
+        {% csrf_token %}
+        <a href="{% url 'animales:perroform' %}">Publicar Perro</a>
+                                <h2>Lista de Perros</h2>
+        <div>
+            <form action= '{% url 'animales:perrolist' %}'>
+                <input type="text" name="consulta" placeholder="Buscar...">
+
+            </form>
+        </div>
         {%for perro in object_list %}
 
         <ul>
-                <li>{{perro.id}} {{perro.nombre}}</li>
-        </ul>        
+                <li>Nombre:{{perro.nombre}} Tamaño:{{perro.tamano}} Raza:{{perro.raza}}</li>
+                <a href="{% url 'animales:perro_detail' perro.id %}"> Ver en detalle</a>
+
+                <a href="{% url 'animales:perro_update' pk=perro.id %}"> Editar </a>
+                <a href="{% url 'animales:perro_delete' pk=perro.id %}"> Eliminar </a>
+        </ul>
         {% endfor %}
-    </form>
+
 {% endblock contenido_que_cambia %}

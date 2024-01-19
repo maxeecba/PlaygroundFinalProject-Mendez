@@ -1,0 +1,23 @@
+{% extends 'animales/padre.html' %}
+
+{% block contenido_que_cambia %}
+
+        {% csrf_token %}
+
+        <h2>Detalle de {{object.nombre}}</h2>
+
+        <ul>
+
+            <li>N ombre: {{object.nombre}}</li>
+            <li>Edad: {{object.nacimiento}}</li>
+            <li>Vacunacion: {{object.es_vacunado}}</li>
+            <li>Desparasitado: {{object.es_desparasitado}}</li>
+            <li>Observaciones: {{object.observaciones}}</li>
+            <li>Raza: {{object.raza}}</li>
+            <li>Tamaño: {{object.tamano}}</li>
+
+        </ul>
+
+
+
+{% endblock contenido_que_cambia %}
