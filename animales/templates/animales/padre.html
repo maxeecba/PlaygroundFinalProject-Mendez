@@ -4,16 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PatitasCba</title>
+    <style>
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)), url(https://www.bbva.ch/wp-content/uploads/2022/05/recurso_mascotas.jpg);
+            background-color: #111;
+            font-family: 'Segoe UI';
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: 100% 100%;
+        }
+
+        h1 {
+            font-size: 90px;
+            text-align: center;
+            color: #E9DA30;
+            border-color: brown;
+            padding: 10px;
+            margin-top: 40px;
+        }
+
+        .nav-links {
+            text-align: center;
+            margin-top: 20px;
+            color: #FCE38F;
+            font-size: 20px;
+        }
+
+        .Contenido {
+            text-align: center;
+            max-width: 330px;
+            margin: 65px auto;
+            padding: 70px;
+            background-color: #f0e44198;
+            border-radius: 10px;
+            opacity: 0;
+            animation: fade-in-form 2.0s ease-out forwards;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #05000048;
+            border-radius: 4px;
+        }
+
+        form input[type="submit"] {
+            background-color: #ff0073;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        @keyframes fade-in-form {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h2{
+            font-size: 35px;
+            color: #fdfdfd;}
+        .perro-gato {
+            background-color: #f0e441a0;
+            padding: 25px;
+            margin-bottom: 20px;
+            width: 420px;
+            max-width: 500px; /* Ajusta el máximo ancho según tus necesidades */
+            height: 30px;
+            position: relative;
+            left: 50%; /* Coloca el centro horizontal del elemento en el centro de su contenedor */
+            transform: translateX(-50%); /* Ajusta la posición horizontal para centrar */
+            top: 0px/* Ajusta según tus necesidades */;
+            border-radius: 8px;
+            color: red;
+            font-size: 30px;
+
+        }
+
+        .perro-gato a {
+            margin-right: 20px; /* Añade un margen a la derecha de cada enlace de 20px */
+            color: white; /* Color del texto de los enlaces */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+        }
+        .perro-gato a:hover {
+        color: rgba(255, 89, 0, 0.7); /* Cambia el color de fondo al pasar el ratón */
+        }
+
+
+    </style>
 </head>
 <body>
+    <h1>Patitas Córdoba</h1>
+    <nav class="nav-links">
+        <div class="perro-gato">
+        <a href="{% url 'animales:perro' %}">Perro</a>
+        </div>
 
+        <div class="perro-gato">
+        <a href="{% url 'animales:gato' %}">Gato</a>
+        </div>
+    </nav>
 
-    <h1>Patitas CBA</h1>
-    <a href="{% url 'animales:perro' %}">Perro</a>
-    <a href="{% url 'animales:gato' %}">Gato</a>
-    {% block contenido_que_cambia %}
-    {% endblock contenido_que_cambia %}
+    <div class="Contenido">
+        {% block contenido_que_cambia %}
 
-
+        {% endblock contenido_que_cambia %}
+    </div>
 </body>
 </html>

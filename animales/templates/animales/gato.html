@@ -1,11 +1,31 @@
 {% extends 'animales/padre.html' %}
 
 {% block contenido_que_cambia %}
-    <h1>Gato</h1>
+    
 
-    <a href="{% url 'animales:gato_form' %}">Publicar Gato</a>
-    <a href="{% url 'animales:gato_list' %}">Quiero un Gato</a>
+    <a href="{% url 'animales:gato_form' %}">Publicar</a>
+    <br><br>
+    <a href="{% url 'animales:gato_list' %}">Adoptar</a>
+
+<style>
+    a {
+            transform: translateX(-50%); /* Ajusta la posición horizontal para centrar */
+            color: red;
+            font-size: 30px;
+            text-align: center;
+            padding: auto;
+        }
+            
 
 
+    a    {   margin-right: 20px; /* Añade un margen a la derecha de cada enlace de 20px */
+            color: white; /* Color del texto de los enlaces */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+        }
+    a:hover {
+        color: rgba(255, 89, 0, 0.7); /* Cambia el color de fondo al pasar el ratón */
+        }
+
+</style>
 
 {% endblock contenido_que_cambia %}
