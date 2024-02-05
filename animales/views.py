@@ -5,13 +5,15 @@ from django.urls import reverse_lazy
 from .models import *
 from .forms import *
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView
-
+from django.contrib.auth.decorators import login_required
+#-----------------------------------Inicio----------------------------------------------------------
 
 def padre(request):
     return render(request,'animales/padre.html')
-
+def nosotros(request):
+    return render(request,'animales/nosotros.html')
 #------------------------------Vistas para Perro--------------------------------------------
-
+@login_required
 def perro (request):
     return render(request, 'animales/perro.html')
 
@@ -44,7 +46,7 @@ class PerroDelete(DeleteView):
     success_url = reverse_lazy("animales:inicio")
 
 #--------------------------------Vistas para Gato---------------------------------
-
+@login_required
 def gato (request):
     return render(request, 'animales/gato.html')
 
@@ -75,3 +77,6 @@ class GatoUpdate(UpdateView):
 class GatoDelete(DeleteView):
     model = Gato
     success_url = reverse_lazy("animales:inicio")
+
+
+

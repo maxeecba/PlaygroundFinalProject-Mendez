@@ -8,6 +8,7 @@ app_name = 'animales'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ('',views.padre, name= 'inicio'),
+    path ('nosotros/', views.nosotros, name='nosotros'),
     #-----------------------------------PERRO---------------------------------------------
     path ('perro/',views.perro, name= 'perro'),
     path('publicarperro/list/', views.PerroList.as_view(), name= 'perrolist'),
@@ -22,5 +23,6 @@ urlpatterns = [
     path('publicargato/detail/<int:pk>', views.GatoDetail.as_view(), name= 'gato_detail'),
     path('publicargato/update/<int:pk>', views.GatoUpdate.as_view(), name= 'gato_update'),
     path('publicargato/delete/<int:pk>', views.GatoDelete.as_view(), name= 'gato_delete'),
+
 
 ]

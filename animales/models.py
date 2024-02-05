@@ -3,9 +3,11 @@ from django.db import models
 # Create your models here.
 class Animal(models.Model):
     # duenio = models.CharField(max_legth= 50)
+    contacto = models.CharField(max_length=30)
     nombre = models.CharField(max_length=30, blank= True, null = True)
     nacimiento = models.DateField(blank= True, null = True)
     vacunacion= models.BooleanField(blank = True)
+    castrado= models.BooleanField(blank = True)
     desparasitado = models.BooleanField(blank = True)
     observaciones = models.TextField(blank= True, null = True)
 
@@ -24,6 +26,11 @@ class Animal(models.Model):
             return "No"
     def es_desparasitado(self):
         if self.desparasitado:
+            return "Si"
+        else:
+            return "No"
+    def es_castrado(self):
+        if self.castrado:
             return "Si"
         else:
             return "No"

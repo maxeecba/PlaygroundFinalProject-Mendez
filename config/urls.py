@@ -5,5 +5,6 @@ from animales.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('animales.urls'))
+    path('',include('animales.urls')),
+    path('', include ('usuario.urls')),
 ]

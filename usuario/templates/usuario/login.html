@@ -1,0 +1,16 @@
+{% extends 'animales/padre.html' %}
+{%load static %}
+
+{% block contenido_que_cambia %}
+
+
+<form  method='POST' >
+    <h2> Inicio de sesión </h2>
+    {% csrf_token %}
+
+    {{form.as_p}}
+    <input type="hidden" name="next" value="{% url 'animales:inicio' %}">
+    <button type="submit"> Iniciar sesión </button>
+
+</form>
+{% endblock contenido_que_cambia %}

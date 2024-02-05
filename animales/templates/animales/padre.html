@@ -33,13 +33,14 @@
 
         .Contenido {
             text-align: center;
-            max-width: 330px;
+            max-width: 400px;
             margin: 65px auto;
             padding: 70px;
             background-color: #f0e44198;
             border-radius: 10px;
             opacity: 0;
             animation: fade-in-form 2.0s ease-out forwards;
+
         }
 
         form input[type="text"],
@@ -94,7 +95,7 @@
             text-decoration: none; /* Elimina el subrayado de los enlaces */
         }
         .perro-gato a:hover {
-        color: rgba(255, 89, 0, 0.7); /* Cambia el color de fondo al pasar el ratón */
+        color: #fc3f81; /* Cambia el color de fondo al pasar el ratón */
         }
 
 
@@ -103,18 +104,31 @@
 <body>
     <h1>Patitas Córdoba</h1>
     <nav class="nav-links">
-        <div class="perro-gato">
-        <a href="{% url 'animales:perro' %}">Perro</a>
-        </div>
 
         <div class="perro-gato">
-        <a href="{% url 'animales:gato' %}">Gato</a>
+            <a href="{% url 'usuario:opciones' %}"><strong>Usuario</strong></a>
+            <a href="{% url 'animales:nosotros' %}"><strong>Acerca de</strong></a>
         </div>
+        {%if user.is_authenticated %}
+            <div class="perro-gato">
+                <a href="{% url 'animales:perro' %}"><strong>Perro</strong></a>
+                <a href="{% url 'animales:gato' %}"><strong>Gato</strong></a>
+            </div>
+        {%endif%}
+
+
     </nav>
 
     <div class="Contenido">
         {% block contenido_que_cambia %}
+        <h2>Bienvenido a Patitas Córdoba</h2>
 
+        <p>Para buscar o publicar un animalito, por favor, registrate o inicia sesión. Gracias por elegirnos!</p>
+        {% if mensaje %}
+        <p>
+            {{ mensaje }}
+        </p>
+        {% endif%}
         {% endblock contenido_que_cambia %}
     </div>
 </body>

@@ -1,23 +1,21 @@
 {% extends 'animales/padre.html' %}
 
 {% block contenido_que_cambia %}
+    {% csrf_token %}
 
-        {% csrf_token %}
+    <div style=  "padding: 20px; border-radius: 10px;">
+        <h2 style="color: #ff69b4;">Detalle de {{ object.nombre }}</h2>
 
-        <h2>Detalle de {{object.nombre}}</h2>
-
-        <ul>
-
-            <li>Nombre: {{object.nombre}}</li>
-            <li>Edad: {{object.nacimiento}}</li>
-            <li>Vacunacion: {{object.es_vacunado}}</li>
-            <li>Desparasitado: {{object.es_desparasitado}}</li>
-            <li>Observaciones: {{object.observaciones}}</li>
-            <li>Color : {{object.color_pelo}}</li>
-            <li>Color de ojos: {{object.color_ojos}}</li>
-
+        <ul style="list-style-type: none; padding: 0;">
+            <li><strong>Nombre:</strong> <span style="color: #333;">{{ object.nombre }}</span></li>
+            <li><strong>Edad:</strong> <span style="color: #333;">{{ object.nacimiento }}</span></li>
+            <li><strong>Vacunación:</strong> <span style="color: #333;">{{ object.es_vacunado }}</span></li>
+            <li><strong>Desparasitado:</strong> <span style="color: #333;">{{ object.es_desparasitado }}</span></li>
+            <li><strong>Castrado:</strong> <span style="color: #333;">{{ object.es_castrado }}</span></li>
+            <li><strong>Color:</strong> <span style="color: #333;">{{ object.color_pelo }}</span></li>
+            <li><strong>Color de ojos:</strong> <span style="color: #333;">{{ object.color_ojos }}</span></li>
+            <li><strong>Observaciones:</strong> <span style="color: #333;">{{ object.observaciones }}</span></li>
+            <li><strong>Contacto:</strong> <span style="color: #333;">{{ object.contacto }}</span></li>
         </ul>
-
-
-
+    </div>
 {% endblock contenido_que_cambia %}
