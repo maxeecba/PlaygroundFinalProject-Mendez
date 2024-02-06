@@ -15,3 +15,13 @@ class CustomLoginView(LoginView):
     template_name = "usuario/login.html"
 
 #----------------------------------REGISTER------------------------------------------
+def register(request):
+    form = CustomUserCreationForm()
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render (request, 'usuario/login.html')
+        else:
+            form = CustomUserCreationForm()
+    return render(request,'usuario/register.html', {'form': form})

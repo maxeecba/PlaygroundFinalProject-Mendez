@@ -102,14 +102,32 @@
     </style>
 </head>
 <body>
+
+    {%if user.is_authenticated %}
+    <p style="position: absolute; top: 8px; right: 150px; margin: 10px; padding: 5px; color: #f2e33f; font-size: 20px;">Usuario: {{ user.username }}</p>
+
+    <form action= "{% url "usuario:logout" %}" method="POST">
+        {%csrf_token%}
+        <button type="submit" style="position: absolute; top: 14px; right: 50px; margin: 10px;  color: #3f4ef2;font-size: 20px;"><u>Logout</u></button>
+    </form>
+
+
+    {%endif%}
+
+
     <h1>Patitas Córdoba</h1>
     <nav class="nav-links">
 
         <div class="perro-gato">
+            {% if not user.is_authenticated %}
             <a href="{% url 'usuario:opciones' %}"><strong>Usuario</strong></a>
+
+
+            {% endif %}
             <a href="{% url 'animales:nosotros' %}"><strong>Acerca de</strong></a>
         </div>
         {%if user.is_authenticated %}
+
             <div class="perro-gato">
                 <a href="{% url 'animales:perro' %}"><strong>Perro</strong></a>
                 <a href="{% url 'animales:gato' %}"><strong>Gato</strong></a>

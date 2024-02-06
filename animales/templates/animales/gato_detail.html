@@ -4,9 +4,9 @@
     {% csrf_token %}
 
     <div style=  "padding: 20px; border-radius: 10px;">
-        <h2 style="color: #ff69b4;">Detalle de {{ object.nombre }}</h2>
+        <h2 >Detalle de {{ object.nombre }}</h2>
 
-        <ul style="list-style-type: none; padding: 0;">
+        <ul style="text-align: left;">
             <li><strong>Nombre:</strong> <span style="color: #333;">{{ object.nombre }}</span></li>
             <li><strong>Edad:</strong> <span style="color: #333;">{{ object.nacimiento }}</span></li>
             <li><strong>Vacunación:</strong> <span style="color: #333;">{{ object.es_vacunado }}</span></li>

@@ -6,6 +6,7 @@ from .models import *
 from .forms import *
 from django.views.generic import ListView,CreateView,DetailView,UpdateView,DeleteView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 #-----------------------------------Inicio----------------------------------------------------------
 
 def padre(request):
@@ -36,12 +37,13 @@ class PerroList(ListView):
 class PerroDetail(DetailView):
     model = Perro
 
-class PerroUpdate(UpdateView):
+
+class PerroUpdate(LoginRequiredMixin,UpdateView):
     model = Perro
     form_class = PerroForm
     success_url = reverse_lazy("animales:perrolist")
 
-class PerroDelete(DeleteView):
+class PerroDelete(LoginRequiredMixin,DeleteView):
     model = Perro
     success_url = reverse_lazy("animales:inicio")
 
@@ -69,12 +71,12 @@ class GatoList(ListView):
 class GatoDetail(DetailView):
     model = Gato
 
-class GatoUpdate(UpdateView):
+class GatoUpdate(LoginRequiredMixin,UpdateView):
     model = Gato
     form_class = GatoForm
     success_url = reverse_lazy("animales:gato_list")
 
-class GatoDelete(DeleteView):
+class GatoDelete(LoginRequiredMixin,DeleteView):
     model = Gato
     success_url = reverse_lazy("animales:inicio")
 

@@ -14,12 +14,12 @@
         {%for perro in object_list %}
 
         <ul>
-                <li>Nombre:{{perro.nombre}} Tamaño:{{perro.tamano}} Raza:{{perro.raza}}</li>
-                <a href="{% url 'animales:perro_detail' perro.id %}"> Ver en detalle</a>
-
+                <li><strong>Nombre:</strong> {{perro.nombre}}, <strong>Tamaño:</strong> {{perro.tamano}} ,<strong>Raza:</strong> {{perro.raza}}.</li>
+                <a href="{% url 'animales:perro_detail' perro.id %}"> Detalle</a>
                 <a href="{% url 'animales:perro_update' pk=perro.id %}"> Editar </a>
                 <a href="{% url 'animales:perro_delete' pk=perro.id %}"> Eliminar </a>
         </ul>
+
         {% endfor %}
 
 {% endblock contenido_que_cambia %}
