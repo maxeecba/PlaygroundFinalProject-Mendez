@@ -8,6 +8,9 @@ from .forms import *
 def opciones(request):
     return render(request,"usuario/opciones.html")
 
+def bienvenida(request):
+    return render (request,'usuario/bienvenida.html')
+
 # ----------------------------------LOGIN-------------------------------------------
 
 class CustomLoginView(LoginView):

@@ -14,6 +14,7 @@ urlpatterns = [
     # path('index/',views.index, name= 'login' ),
     # path('register/', views.register,name='register'),
     path('opciones/',views.opciones, name='opciones'),
+    path('bienvenida/',views.bienvenida, name='bienvenida'),
     path('logout/', LogoutView.as_view(template_name = 'usuario/logout.html'), name= 'logout'),
     path('register/', views.register, name= 'register'),
 

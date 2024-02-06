@@ -9,7 +9,7 @@
     {% csrf_token %}
 
     {{form.as_p}}
-    <input type="hidden" name="next" value="{% url 'animales:inicio' %}">
+    <input type="hidden" name="next" value="{% url 'usuario:bienvenida' %}">
     <button type="submit"> Iniciar sesión </button>
 
 </form>

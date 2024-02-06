@@ -97,18 +97,30 @@
         .perro-gato a:hover {
         color: #fc3f81; /* Cambia el color de fondo al pasar el ratón */
         }
-
+        .boton-logout{
+            position: absolute;
+            top: 14px;
+            right: 50px;
+            margin: 10px;
+            color: #3f4ef2;
+            font-size: 20px;
+            background-color: #11111100;
+            border-color: #e9da3000;
+        }
+        .boton-logout:hover{
+            color:red;
+        }
 
     </style>
 </head>
 <body>
 
     {%if user.is_authenticated %}
-    <p style="position: absolute; top: 8px; right: 150px; margin: 10px; padding: 5px; color: #f2e33f; font-size: 20px;">Usuario: {{ user.username }}</p>
+    <p style="position: absolute; top: 8px; right: 150px; margin: 10px; padding: 5px; color: #ffffff; font-size: 20px;">{{ user.username }}</p>
 
     <form action= "{% url "usuario:logout" %}" method="POST">
         {%csrf_token%}
-        <button type="submit" style="position: absolute; top: 14px; right: 50px; margin: 10px;  color: #3f4ef2;font-size: 20px;"><u>Logout</u></button>
+        <button type="submit" class="boton-logout"><u>Logout</u></button>
     </form>
 
 
