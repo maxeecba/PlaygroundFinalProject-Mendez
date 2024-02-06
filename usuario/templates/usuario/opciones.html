@@ -5,8 +5,19 @@
 
 <h2>
 <form>
-    <a href="{% url 'usuario:login' %}">Login</a>
-    <a href="{% url 'usuario:register' %}">Registro</a>
+    <a href="{% url 'usuario:register' %}">Registro</a><br><br>
+    <a href="{% url 'usuario:login' %}">Login</a> 
+    
 </form>
 </h2>
+<style>
+    a {
+        margin-right: 20px; /* Añade un margen a la derecha de cada enlace de 20px */
+        color: white; /* Color del texto de los enlaces */
+        text-decoration: none; /* Elimina el subrayado de los enlaces */
+    }
+    a:hover {
+    color: #fc3f81; /* Cambia el color de fondo al pasar el ratón */
+    }
+    </style>
 {% endblock contenido_que_cambia %}

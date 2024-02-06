@@ -4,13 +4,26 @@
 {% block contenido_que_cambia %}
 
 
-<form  method='post' >
+<form  method='post' class="registro">
     <h2> Registro </h2>
     {% csrf_token %}
 
     {{form.as_p}}
     <input type="hidden" name="next" value="{% url 'animales:inicio' %}">
-    <button type="submit"> Registrar Usuario </button>
+    <button type="submit" > Registrar</button>
 
 </form>
+<style>
+    .registro { text-align:inherit;
+
+    }
+    button { 
+        font-size: 25px;
+        position: absolute;
+        left: 40%;
+        text-align: center;
+        background-color: rgba(189, 43, 226, 0.397);
+        border-color: rgba(255, 0, 0, 0);
+        }
+</style>
 {% endblock contenido_que_cambia %}
